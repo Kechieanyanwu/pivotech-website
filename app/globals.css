@@ -1,8 +1,5 @@
 @import 'tailwindcss';
 
-@source '../app/**/*.{ts,tsx}';
-@source '../components/**/*.{ts,tsx}';
-
 @theme {
   --color-navy:  #0D1B5E;
   --color-steel: #3A7AC8;
