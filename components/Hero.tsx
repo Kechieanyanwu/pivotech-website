@@ -14,8 +14,16 @@ const item = {
 
 export default function Hero() {
   return (
-    <section id="top" className="bg-navy min-h-screen flex items-center justify-center px-6 py-section-m md:py-section">
-      <div className="max-w-4xl mx-auto text-center w-full">
+    <section id="top" className="relative overflow-hidden bg-navy min-h-screen flex items-center justify-center px-6 py-section-m md:py-section">
+      {/* Aurora background blobs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="aurora-blob aurora-blob-1" />
+        <div className="aurora-blob aurora-blob-2" />
+        <div className="aurora-blob aurora-blob-3" />
+        <div className="aurora-blob aurora-blob-4" />
+      </div>
+
+      <div className="relative z-10 max-w-4xl mx-auto text-center w-full">
         <motion.div
           variants={container}
           initial="hidden"

@@ -13,7 +13,7 @@ export default function Footer() {
 
           {/* Tagline */}
           <p className="font-serif text-cream/60 text-sm">
-            Building something worth building.
+            For builders. For impact. For what comes next.
           </p>
 
           {/* Social links */}

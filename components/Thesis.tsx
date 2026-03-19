@@ -10,7 +10,7 @@ export default function Thesis() {
         </blockquote>
 
         <p className="font-sans text-cream/70 text-base md:text-lg leading-relaxed">
-          Technology should improve lives. That&apos;s the filter. That&apos;s why we build.
+          Technology should improve lives. That&apos;s why we build.
         </p>
 
         {/* Blue dot divider below */}

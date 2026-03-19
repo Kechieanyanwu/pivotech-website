@@ -16,3 +16,71 @@
 .blue-dot {
   @apply block mx-auto w-2 h-2 rounded-full bg-steel;
 }
+
+/* ── Aurora hero background ───────────────────────────────────── */
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/* Steel blue — top left */
+.aurora-blob-1 {
+  width: 640px;
+  height: 640px;
+  background: radial-gradient(circle, #3A7AC8 0%, transparent 70%);
+  top: -15%;
+  left: -10%;
+  animation: aurora1 16s infinite alternate ease-in-out;
+}
+
+/* Coral / orange — right edge */
+.aurora-blob-2 {
+  width: 520px;
+  height: 520px;
+  background: radial-gradient(circle, #E8724A 0%, transparent 70%);
+  top: 10%;
+  right: -8%;
+  animation: aurora2 20s infinite alternate ease-in-out;
+}
+
+/* Rose / pink — bottom centre */
+.aurora-blob-3 {
+  width: 460px;
+  height: 460px;
+  background: radial-gradient(circle, #C45882 0%, transparent 70%);
+  bottom: -12%;
+  left: 25%;
+  animation: aurora3 22s infinite alternate ease-in-out;
+}
+
+/* Indigo — mid left, behind text */
+.aurora-blob-4 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #4B2DB3 0%, transparent 70%);
+  top: 35%;
+  left: 10%;
+  animation: aurora4 14s infinite alternate ease-in-out;
+}
+
+@keyframes aurora1 {
+  0%   { transform: translate(0px,   0px)  scale(1);    }
+  100% { transform: translate(80px,  60px) scale(1.15); }
+}
+@keyframes aurora2 {
+  0%   { transform: translate(0px,   0px)   scale(1);   }
+  100% { transform: translate(-70px, 90px)  scale(1.1); }
+}
+@keyframes aurora3 {
+  0%   { transform: translate(0px,  0px)   scale(1);   }
+  100% { transform: translate(50px, -80px) scale(1.2); }
+}
+@keyframes aurora4 {
+  0%   { transform: translate(0px,   0px)   scale(1.1); }
+  100% { transform: translate(-40px, -50px) scale(1);   }
+}
