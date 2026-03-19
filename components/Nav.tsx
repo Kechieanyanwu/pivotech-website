@@ -1,21 +1,4 @@
-const PivotechIcon = () => (
-  <svg width="40" height="40" viewBox="0 0 40 40" aria-label="Pivotech" role="img">
-    <rect width="40" height="40" fill="#0D1B5E" />
-    <text
-      x="50%"
-      y="44%"
-      dominantBaseline="middle"
-      textAnchor="middle"
-      fill="#F5F0E8"
-      fontFamily="Georgia, serif"
-      fontSize="16"
-      fontWeight="700"
-    >
-      P.
-    </text>
-    <circle cx="20" cy="30" r="2.5" fill="#3A7AC8" />
-  </svg>
-)
+import Image from 'next/image'
 
 export default function Nav() {
   return (
@@ -23,7 +6,7 @@ export default function Nav() {
       <div className="max-w-6xl mx-auto flex items-center justify-between">
         {/* Logo — links to top of page */}
         <a href="#top" aria-label="Back to top">
-          <PivotechIcon />
+          <Image src="/pivotech-icon.png" alt="Pivotech" width={40} height={40} />
         </a>
 
         {/* Nav links */}
