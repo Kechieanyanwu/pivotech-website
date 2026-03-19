@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 const PivotechIcon = () => (
   <svg width="40" height="40" viewBox="0 0 40 40" aria-label="Pivotech" role="img">
     <rect width="40" height="40" fill="#0D1B5E" />
