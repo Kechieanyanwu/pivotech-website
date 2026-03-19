@@ -3,16 +3,17 @@ const PivotechIcon = () => (
     <rect width="40" height="40" fill="#0D1B5E" />
     <text
       x="50%"
-      y="54%"
+      y="44%"
       dominantBaseline="middle"
       textAnchor="middle"
       fill="#F5F0E8"
       fontFamily="Georgia, serif"
-      fontSize="18"
+      fontSize="16"
       fontWeight="700"
     >
       P.
     </text>
+    <circle cx="20" cy="30" r="2.5" fill="#3A7AC8" />
   </svg>
 )
 
@@ -28,7 +29,7 @@ export default function Footer() {
           </div>
 
           {/* Tagline */}
-          <p className="font-serif text-cream/60 text-sm italic">
+          <p className="font-serif text-cream/60 text-sm">
             Building something worth building.
           </p>
 
@@ -54,7 +55,7 @@ export default function Footer() {
         </div>
 
         <p className="font-sans text-cream/40 text-xs text-center">
-          © 2026 Pivotech. All rights reserved.
+          © 2026 Pivotech
         </p>
       </div>
     </footer>

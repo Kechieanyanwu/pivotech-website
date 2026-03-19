@@ -28,7 +28,7 @@ export default function WhatWeDo() {
       <div className="max-w-5xl mx-auto">
         {/* Section label */}
         <p className="font-sans text-steel text-xs uppercase tracking-[0.3em] mb-16">
-          What we do
+          WHAT WE DO
         </p>
 
         {/* Three programmes */}

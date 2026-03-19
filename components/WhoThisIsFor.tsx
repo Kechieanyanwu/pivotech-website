@@ -27,7 +27,7 @@ export default function WhoThisIsFor() {
 
         {/* Label */}
         <p className="font-sans text-steel text-xs uppercase tracking-[0.3em] mb-8">
-          Pivotech is for
+          PIVOTECH IS FOR
         </p>
 
         {/* Rotating word — fixed height prevents layout shift */}

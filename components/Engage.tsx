@@ -25,7 +25,7 @@ export default function Engage() {
       <div className="max-w-5xl mx-auto">
         {/* Section label */}
         <p className="font-sans text-steel text-xs uppercase tracking-[0.3em] mb-16">
-          Get involved
+          GET INVOLVED
         </p>
 
         {/* Three cards */}
