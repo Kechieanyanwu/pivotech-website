@@ -23,7 +23,7 @@ export default function Nav() {
             href="#engage"
             className="font-sans text-cream text-sm uppercase tracking-widest border border-cream/60 px-4 py-2 hover:border-cream transition-colors"
           >
-            Partner with us
+            Curious?
           </a>
         </div>
       </div>
