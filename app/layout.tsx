@@ -18,19 +18,25 @@ const hankenGrotesk = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Pivotech — For technologists who build for impact.",
+  title: "Pivotech — Ambitious technologists. Impactful products.",
   description:
     "Pivotech is an ecosystem that brings ambitious technologists together to build impactful and commercially viable products.",
   metadataBase: new URL("https://pivotech.io"),
   openGraph: {
-    title: "Pivotech",
-    description: "For technologists who build for impact.",
+    title: "Ambitious technologists. Impactful products.",
+    description:
+      "Pivotech brings ambitious technologists together to build impactful and commercially viable products.",
     url: "https://pivotech.io",
     siteName: "Pivotech",
     locale: "en_GB",
     type: "website",
   },
-  twitter: { card: "summary_large_image", title: "Pivotech" },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ambitious technologists. Impactful products.",
+    description:
+      "Pivotech brings ambitious technologists together to build impactful and commercially viable products.",
+  },
 };
 
 export default function RootLayout({
