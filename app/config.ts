@@ -10,7 +10,8 @@ export const essays = [
     href: "https://pivotech.substack.com/p/were-all-thinking-about-ai",
   },
   {
-    title: "Something magical happens when curious people share",
+    title:
+      "Something magical happens when curious people share what they're building",
     href: "https://pivotech.substack.com/p/something-magical-happens-when-curious",
   },
 ];

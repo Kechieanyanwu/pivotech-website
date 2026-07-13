@@ -7,7 +7,13 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto flex items-center justify-between gap-2">
         {/* Logo */}
         <a href="#top" aria-label="Back to top">
-          <Image src="/blue-logo.png" alt="Pivotech" width={100} height={100} />
+          <Image
+            src="/blue-logo.png"
+            alt="Pivotech"
+            width={1774}
+            height={444}
+            className="h-auto w-[100px]"
+          />
         </a>
 
         {/* Social links */}

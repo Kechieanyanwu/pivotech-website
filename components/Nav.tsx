@@ -7,7 +7,14 @@ export default function Nav() {
       <div className="max-w-6xl mx-auto flex items-center justify-between py-5">
         {/* Logo */}
         <a href="#top" aria-label="Back to top">
-          <Image src="/blue-logo.png" alt="Pivotech" width={150} height={150} />
+          <Image
+            src="/blue-logo.png"
+            alt="Pivotech"
+            width={1774}
+            height={444}
+            loading="eager"
+            className="h-auto w-[150px]"
+          />
         </a>
 
         {/* Nav links */}
@@ -15,13 +22,10 @@ export default function Nav() {
           <a href="#ecosystem" className="hover:text-blue transition-colors">
             Connect
           </a>
-          <a
-            href="#build-sessions"
-            className="hover:text-blue transition-colors"
-          >
+          <a href="#ecosystem" className="hover:text-blue transition-colors">
             Build
           </a>
-          <a href="#event" className="hover:text-blue transition-colors">
+          <a href="#ecosystem" className="hover:text-blue transition-colors">
             Accelerate
           </a>
           <a
