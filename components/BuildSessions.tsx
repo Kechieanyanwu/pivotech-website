@@ -61,13 +61,10 @@ export default function BuildSessions() {
           </em>
         </h2>
 
-        <div className="flex items-baseline justify-between mt-10 mb-7">
-          <h3 className="font-serif font-normal text-navy text-[34px]">
-            Build sessions
-          </h3>
-          <span className="font-sans text-[15px] text-navy/55">
+        <div className="mt-10 mb-7">
+          <h3 className="font-sans text-[13px] font-semibold tracking-[0.14em] uppercase text-navy/45">
             Products launched from the community
-          </span>
+          </h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[22px]">

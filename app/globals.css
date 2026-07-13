@@ -19,6 +19,7 @@
   display: flex;
   width: max-content;
   animation: stats-ribbon-marquee 20s linear infinite;
+  will-change: transform;
 }
 
 .stats-ribbon__group {
@@ -32,11 +33,5 @@
 @keyframes stats-ribbon-marquee {
   to {
     transform: translateX(-50%);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .stats-ribbon__track {
-    animation: none;
   }
 }
