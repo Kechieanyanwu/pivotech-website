@@ -1,19 +1,20 @@
-import { Playfair_Display, DM_Sans } from 'next/font/google'
+import { Newsreader, Hanken_Grotesk } from 'next/font/google'
 import './globals.css'
 import type { Metadata } from 'next'
 
-const playfair = Playfair_Display({
+const newsreader = Newsreader({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--font-newsreader',
   display: 'swap',
-  weight: ['400', '600', '700'],
+  weight: ['300', '400', '500', '600'],
+  style: ['normal', 'italic'],
 })
 
-const dmSans = DM_Sans({
+const hankenGrotesk = Hanken_Grotesk({
   subsets: ['latin'],
-  variable: '--font-dm-sans',
+  variable: '--font-hanken-grotesk',
   display: 'swap',
-  weight: ['400', '500', '600'],
+  weight: ['400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
@@ -33,8 +34,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${dmSans.variable}`}>
-      <body className="font-sans bg-white text-navy antialiased">
+    <html lang="en" className={`${newsreader.variable} ${hankenGrotesk.variable}`}>
+      <body className="font-sans bg-beige text-navy antialiased">
         {children}
       </body>
     </html>

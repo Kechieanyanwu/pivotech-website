@@ -5,13 +5,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        navy:  '#0D1B5E',
-        steel: '#3A7AC8',
-        cream: '#F5F0E8',
+        navy:       '#16203a',
+        'dark-navy':'#141b30',
+        blue:       '#2d4bd4',
+        'light-blue':'#7fa0e8',
+        gold:       '#e2ae63',
+        beige:      '#f4eee1',
       },
       fontFamily: {
-        serif: ['var(--font-playfair)', 'Georgia', 'serif'],
-        sans:  ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-newsreader)', 'Georgia', 'serif'],
+        sans:  ['var(--font-hanken-grotesk)', 'system-ui', 'sans-serif'],
       },
       spacing: {
         section:     '120px',

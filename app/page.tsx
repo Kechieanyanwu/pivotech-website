@@ -1,11 +1,12 @@
-import Nav from '@/components/Nav'
-import Hero from '@/components/Hero'
-import WhoThisIsFor from '@/components/WhoThisIsFor'
-import WhatWeDo from '@/components/WhatWeDo'
-import Thesis from '@/components/Thesis'
-import Engage from '@/components/Engage'
-import Footer from '@/components/Footer'
-import FadeIn from '@/components/FadeIn'
+import Nav from "@/components/Nav";
+import Hero from "@/components/Hero";
+import StatsRibbon from "@/components/StatsRibbon";
+import Ecosystem from "@/components/Ecosystem";
+import BuildSessions from "@/components/BuildSessions";
+import EventAndWriting from "@/components/EventAndWriting";
+import Merch from "@/components/Merch";
+import Footer from "@/components/Footer";
+import FadeIn from "@/components/FadeIn";
 
 export default function Home() {
   return (
@@ -13,20 +14,20 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
+        <StatsRibbon />
         <FadeIn>
-          <WhoThisIsFor />
+          <Ecosystem />
         </FadeIn>
         <FadeIn>
-          <WhatWeDo />
+          <BuildSessions />
         </FadeIn>
+        {/* TODO: Add CWT Sessions component */}
         <FadeIn>
-          <Thesis />
-        </FadeIn>
-        <FadeIn>
-          <Engage />
+          <EventAndWriting />
         </FadeIn>
       </main>
+      {/* <Merch /> */}
       <Footer />
     </>
-  )
+  );
 }
