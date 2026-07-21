@@ -21,4 +21,4 @@ export const CONVERSATIONS_LINK =
 
 export const SUBSTACK = "https://pivotech.substack.com";
 
-export const NEXT_EVENT = "https://luma.com/2m3xuyfs?utm_source=website";
+export const NEXT_EVENT = "https://luma.com/o3lvj91p?utm_source=website";

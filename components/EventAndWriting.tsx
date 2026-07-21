@@ -12,11 +12,11 @@ export default function EventAndWriting() {
           Next event
         </span>
         <h2 className="font-serif font-normal text-navy text-[32px] mt-3.5 mb-3">
-          Demo Day — 15 July 2026
+          Conversations with Technologists — 17 September 2026
         </h2>
         <p className="font-sans text-[15px] text-navy/65 mb-[18px]">
-          We&apos;re showcasing the innovative projects and ideas from our
-          inaugural Build Sessions. Come celebrate and connect with us.
+          Our cozy, semi-formal salon where curious technologists share what
+          they&apos;re learning and building. Come join us.
         </p>
         <a
           href={NEXT_EVENT}

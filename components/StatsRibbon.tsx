@@ -20,10 +20,8 @@ function StatItems() {
 function EventItem() {
   return (
     <div className="shrink-0 font-semibold">
-      Next Event:{" "}
-      <span className="text-beige/55 font-normal">
-        Demo Day · 15 July · London
-      </span>
+      Next Event: <span className="text-beige/55 font-normal"></span>
+      Conversations with Technologists · 17 September · London
     </div>
   );
 }
@@ -42,7 +40,7 @@ export default function StatsRibbon() {
     <div className="bg-dark-navy text-beige font-sans text-[15px]">
       <div
         className="overflow-hidden py-5 md:hidden"
-        aria-label="47 builders in the community, 3 products shipped, 5 sessions run, Next Event: Demo Day, 15 July, London"
+        aria-label="47 builders in the community, 3 products shipped, 5 sessions run, Next Event: Conversations with Technologists, 17 September, London"
       >
         <div className="stats-ribbon__track">
           <MobileStatGroup />

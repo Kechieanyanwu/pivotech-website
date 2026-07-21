@@ -21,19 +21,20 @@ const sessions = [
   // },
   {
     name: "In stealth",
-    description: "To be launched at Demo Day.",
+    description: "Making tennis playing more social and fun.",
     blurred: true,
     opacity: 0.55,
   },
   {
     name: "In stealth",
-    description: "To be launched at Demo Day.",
+    description: "Building a more thoughtful way to reward customer loyalty.",
     blurred: true,
     opacity: 0.55,
   },
   {
     name: "In stealth",
-    description: "To be launched at Demo Day.",
+    description:
+      "Making it easier to turn “we should hang out” into actual plans.",
     blurred: true,
     opacity: 0.55,
   },
