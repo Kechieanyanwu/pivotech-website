@@ -7,12 +7,13 @@ import EventAndWriting from "@/components/EventAndWriting";
 import Footer from "@/components/Footer";
 import FadeIn from "@/components/FadeIn";
 import { getUpcomingEvents } from "@/lib/get-events";
+import { getLatestPosts } from "@/lib/get-posts";
 
 // Re-check event expiry independently of the feed's 12-hour refresh interval.
 export const revalidate = 300;
 
 export default async function Home() {
-  const events = await getUpcomingEvents();
+  const [events, posts] = await Promise.all([getUpcomingEvents(), getLatestPosts()]);
   return (
     <>
       <Nav />
@@ -27,7 +28,7 @@ export default async function Home() {
         </FadeIn>
         {/* TODO: Add CWT Sessions component */}
         <FadeIn>
-          <EventAndWriting events={events} />
+          <EventAndWriting events={events} posts={posts} />
         </FadeIn>
       </main>
       {/* <Merch /> */}

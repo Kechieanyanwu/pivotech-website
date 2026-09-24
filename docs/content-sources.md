@@ -15,3 +15,9 @@ Timed events remain listed until DTEND; without DTEND they remain through the lo
 ## Verification
 
 Run `npm test`, `npm run lint`, `npx tsc --noEmit`, and `npm run build`. Verify the homepage at desktop/mobile widths and that each city links to the corresponding registration page. Date behavior is tested with fixed clocks, independent of the real date.
+
+## Writing
+
+Substack remains the publisher. The site reads `https://pivotech.substack.com/feed` on the server, normalizes titles/HTTPS article URLs/publication dates, deduplicates canonical URLs and shows the latest three non-future entries. This includes article/podcast posts exposed by the publication's RSS, not Substack Notes, private feeds or scraped paywalled bodies.
+
+Validated entries use Next's persistent cache with hourly request-driven refresh. A failed refresh retains the last good result. With no successful cache, the page shows a publication link rather than the old hardcoded essays. A valid empty feed shows the same neutral fallback. The five-minute page cache can add another refresh interval before updated feed data is visible; this is not an exact hourly background schedule.
