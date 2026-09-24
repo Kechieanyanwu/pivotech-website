@@ -1,6 +1,5 @@
 "use client";
 
-import { CONVERSATIONS_LINK } from "@/app/config";
 import { motion } from "framer-motion";
 
 const container = {
@@ -90,9 +89,7 @@ export default function Hero() {
             className="flex items-center gap-6 flex-wrap"
           >
             <a
-              href={CONVERSATIONS_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#event"
               className="font-sans font-semibold text-[16px] text-beige bg-blue px-7 py-[15px] rounded-[9px] hover:bg-blue/90 transition-colors"
             >
               Come to a Conversation

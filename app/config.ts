@@ -21,4 +21,5 @@ export const CONVERSATIONS_LINK =
 
 export const SUBSTACK = "https://pivotech.substack.com";
 
-export const NEXT_EVENT = "https://luma.com/o3lvj91p?utm_source=website";
+export const LUMA_FEED =
+  "https://api.luma.com/ics/get?entity=calendar&id=cal-6mGTsM4VnBmQFal";
