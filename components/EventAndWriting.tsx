@@ -15,9 +15,7 @@ export default function EventAndWriting({ events, posts, content = defaultHomepa
         <span className="font-sans text-[15px] font-semibold tracking-[0.14em] uppercase text-blue">
           Upcoming conversations
         </span>
-        <h2 className="font-serif font-normal text-navy text-[32px] mt-3.5 mb-3">
-          {content.eventHeading}
-        </h2>
+
         <p className="font-sans text-[15px] text-navy/65 mb-[18px]">
           {content.eventIntro}
         </p>
