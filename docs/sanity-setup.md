@@ -5,7 +5,7 @@ The integration is prepared but **not activated**. No Sanity project, dataset, p
 ## Sources of truth
 
 - Luma: event titles, dates, end times, cancellation and registration links.
-- Sanity: homepage copy and city/timezone annotations keyed by Luma feed UID. Broader homepage content is a follow-up.
+- Sanity: homepage/ ecosystem copy, community projects, stats, public site links, and city/timezone annotations keyed by Luma feed UID.
 - Substack: articles, exposed through RSS.
 - Google Forms: talk submissions and notifications. Never store responses, private contacts or confidential project information in the public Sanity dataset.
 
@@ -26,7 +26,7 @@ Studio's Presentation tool enables draft mode through `/api/draft-mode/enable`, 
 Create a webhook targeting `https://YOUR-WEBSITE/api/sanity/revalidate`, method POST, for create/update/delete of published content. Filter:
 
 ```groq
-_type in ["homepage", "eventAnnotation"] && !(_id in path("drafts.**"))
+_type in ["homepage", "eventAnnotation", "siteSettings", "communityProject"] && !(_id in path("drafts.**"))
 ```
 
 Projection: `{_type}`. Keep draft events disabled. Generate a random signing secret and put the same value in the webhook secret setting and the website's server-only `SANITY_REVALIDATE_SECRET`. The handler rejects unsigned/invalid requests and unknown document types, then expires only the site-content cache. It does not accept a caller-selected URL/tag. The server queries Sanity directly (`useCdn: false`) to avoid CDN lag. Published content is also revalidated hourly as a backup; updates are request-driven, not a scheduled process.
@@ -49,3 +49,16 @@ Sources: https://www.sanity.io/docs/nextjs/visual-editing-with-next-js-app-route
 ## Dependency verification
 
 The foundation updates Next.js/eslint-config-next to 16.3.6 and React/React DOM to 19.2.8. The previously reported Next.js critical advisory is resolved. At preparation time, npm audit still reports 14 transitive findings (3 high, 11 moderate) in Sanity CLI/build dependencies (adm-zip, js-yaml, smol-toml, uuid and their dependants). Compatible fixes were applied; npm's remaining suggested fix downgrades Sanity across a major version and was not forced. Review upstream fixes before deploying the editor; these findings are not a claim that the public website exposes the affected CLI operations.
+
+
+## Homepage content migration
+
+The seed file includes the current homepage copy, four ecosystem descriptions, the three public stealth project descriptions, the 47/3/6 community stats and existing public links. Import with `--missing` so existing edited records are preserved. If the foundation's homepage document already exists, missing new fields fall back to the current ecosystem copy/heading; edit them through Studio to make those fields explicit. Do not use `--replace` on live edited content.
+
+A successful query returning zero visible projects hides the projects section. An empty stats array removes the stats while keeping upcoming event information. Missing singleton documents use local defaults; a provider outage uses the complete local snapshot if there is no successful cache. Configure and seed a test dataset before switching the production website to a fresh dataset.
+
+Project documents have a public name/description, development or launched status, display order, visibility, optional HTTPS link and optional image with required alt text. Stealth presentation suppresses name/link/image in the rendered data, but the dataset is public: never store confidential names, descriptions or assets there. The image optimizer allows only the configured project's dataset on Sanity's image CDN.
+
+The site settings links control navigation/footer/calendar fallback destinations. They intentionally do not change the server's trusted Luma/RSS fetch URLs or replace the existing talk form. Changing publishers/providers requires a reviewed configuration change.
+
+Before publication, the content owner should verify community counts and the wording “Products launched from the community” against the cards currently marked “In development.” The migration preserves these claims rather than inventing replacements. Review stats and project status after each event, and check external links monthly. Live image upload, hide/reorder/publish workflows, and editor acceptance remain pending the real project.

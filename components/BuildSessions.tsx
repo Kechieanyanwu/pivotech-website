@@ -1,3 +1,6 @@
+import Image from "next/image";
+import { defaultProjects, type CommunityProject } from "@/content/community";
+
 /* Hatched placeholder image used for each session card */
 function HatchedPlaceholder({ blurred }: { blurred?: boolean }) {
   return (
@@ -12,35 +15,14 @@ function HatchedPlaceholder({ blurred }: { blurred?: boolean }) {
   );
 }
 
-const sessions = [
-  // {
-  //   name: 'Social sports app',
-  //   description: 'Bringing people together around the games they love. Coming soon.',
-  //   blurred: false,
-  //   opacity: 0.72,
-  // },
-  {
-    name: "In stealth",
-    description: "Making tennis playing more social and fun.",
-    blurred: true,
-    opacity: 0.55,
-  },
-  {
-    name: "In stealth",
-    description: "Building a more thoughtful way to reward customer loyalty.",
-    blurred: true,
-    opacity: 0.55,
-  },
-  {
-    name: "In stealth",
-    description:
-      "Making it easier to turn “we should hang out” into actual plans.",
-    blurred: true,
-    opacity: 0.55,
-  },
-];
-
-export default function BuildSessions() {
+export default function BuildSessions({
+  projects = defaultProjects,
+  heading = "Products launched from the community",
+}: {
+  projects?: CommunityProject[];
+  heading?: string;
+}) {
+  if (projects.length === 0) return null;
   return (
     <section
       id="build-sessions"
@@ -64,21 +46,32 @@ export default function BuildSessions() {
 
         <div className="mt-10 mb-7">
           <h3 className="font-sans text-[13px] font-semibold tracking-[0.14em] uppercase text-navy/45">
-            Products launched from the community
+            {heading}
           </h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-[22px]">
-          {sessions.map((s, i) => (
+          {projects.map((s) => (
             <div
-              key={i}
+              key={s.id}
               className="border border-dashed rounded-[10px] p-6"
               style={{
                 borderColor: "rgba(22,32,58,0.3)",
-                opacity: s.opacity,
+                opacity: s.stealth ? 0.55 : 1,
               }}
             >
-              <HatchedPlaceholder blurred={s.blurred} />
+              {s.image && !s.stealth ? (
+                <Image
+                  src={s.image.url}
+                  alt={s.image.alt}
+                  width={800}
+                  height={500}
+                  sizes="(max-width: 768px) 100vw, 33vw"
+                  className="mb-4 h-40 w-full rounded-lg object-cover"
+                />
+              ) : (
+                <HatchedPlaceholder blurred={s.stealth} />
+              )}
               <span
                 className="inline-block font-sans text-[11px] font-semibold tracking-[0.1em] uppercase rounded-[20px] px-[9px] py-1 mb-3"
                 style={{
@@ -86,17 +79,27 @@ export default function BuildSessions() {
                   color: "rgba(22,32,58,0.65)",
                 }}
               >
-                In development
+                {s.status === "launched" ? "Launched" : "In development"}
               </span>
               <h4
                 className="font-serif font-normal text-navy text-[21px] mb-1.5"
-                style={s.blurred ? { filter: "blur(3px)" } : undefined}
+                style={s.stealth ? { filter: "blur(3px)" } : undefined}
               >
-                {s.name}
+                {s.stealth ? "In stealth" : s.name}
               </h4>
               <p className="font-sans text-[14px] text-navy/60">
                 {s.description}
               </p>
+              {s.href && !s.stealth && (
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-3 inline-flex min-h-11 items-center font-sans text-sm font-semibold text-blue hover:underline"
+                >
+                  Explore project →
+                </a>
+              )}
             </div>
           ))}
         </div>

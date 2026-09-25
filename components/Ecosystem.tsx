@@ -1,23 +1,10 @@
-const pillars = [
-  {
-    verb: "Connect",
-    body: "Salon sessions where technologists and builders share what they're learning, building, and envisioning.",
-  },
-  {
-    verb: "Build",
-    body: "Structured sessions and space to move you from idea to shipped product.",
-  },
-  {
-    verb: "Accelerate",
-    body: "Individual and small-group advisory for founders and builders navigating product strategy, go-to-market, team formation, and execution.",
-  },
-  {
-    verb: "Be Inspired",
-    body: "The written, spoken, and visual record of what and how technologists are building and thinking.",
-  },
-];
+import { defaultPillars } from "@/content/community";
 
-export default function Ecosystem() {
+export default function Ecosystem({
+  pillars = defaultPillars,
+}: {
+  pillars?: typeof defaultPillars;
+}) {
   return (
     <section id="ecosystem" className="bg-beige px-6 md:px-12 py-16 md:py-20">
       <div className="max-w-6xl mx-auto">
