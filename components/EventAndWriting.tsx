@@ -1,7 +1,9 @@
-import { essays, CONVERSATIONS_LINK } from "@/app/config";
+import { SUBSTACK, CONVERSATIONS_LINK } from "@/app/config";
 import { type CommunityEvent, eventDate, eventTime } from "@/lib/events";
+import type { Post } from "@/lib/posts";
+import Link from "next/link";
 
-export default function EventAndWriting({ events }: { events: CommunityEvent[] }) {
+export default function EventAndWriting({ events, posts }: { events: CommunityEvent[]; posts: Post[] }) {
   return (
     <section
       id="event"
@@ -40,6 +42,9 @@ export default function EventAndWriting({ events }: { events: CommunityEvent[] }
           className="mt-5 inline-flex min-h-11 items-center gap-2 font-sans text-sm font-semibold text-blue hover:underline">
           View event calendar <span aria-hidden="true">→</span>
         </a>
+        <p className="mt-4 font-sans text-[15px] text-navy/70">Something to share with the room?{" "}
+          <Link href="/submit?type=talk" className="inline-flex min-h-11 items-center font-semibold text-blue hover:underline">Submit a talk →</Link>
+        </p>
       </div>
 
       {/* Latest Writing */}
@@ -48,18 +53,26 @@ export default function EventAndWriting({ events }: { events: CommunityEvent[] }
           Latest writing
         </span>
         <div className="mt-4 flex flex-col gap-3.5">
-          {essays.map((e, i) => (
+          {posts.map((post) => (
             <a
-              key={i}
-              href={e.href}
+              key={post.href}
+              href={post.href}
               target="_blank"
               rel="noopener noreferrer"
               className="font-serif text-[20px] text-navy hover:text-blue transition-colors pb-3.5 border-b border-navy/12 last:border-b-0"
             >
-              {e.title}
+              {post.title}
+              <time dateTime={post.publishedAt} className="mt-2 block font-sans text-sm text-navy/60">
+                {new Intl.DateTimeFormat("en-GB", { day: "numeric", month: "long", year: "numeric", timeZone: "UTC" }).format(new Date(post.publishedAt))}
+              </time>
             </a>
           ))}
         </div>
+        {posts.length === 0 && <p className="mt-4 font-sans text-navy/65">Explore our latest stories and conversations on Substack.</p>}
+        <a href={SUBSTACK} target="_blank" rel="noopener noreferrer"
+          className="mt-5 inline-flex min-h-11 items-center gap-2 font-sans text-sm font-semibold text-blue hover:underline">
+          Read all posts <span aria-hidden="true">→</span>
+        </a>
       </div>
     </section>
   );
