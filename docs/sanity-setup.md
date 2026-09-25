@@ -1,6 +1,8 @@
 # Sanity setup and handover
 
-The integration is prepared but **not activated**. No Sanity project, dataset, paid subscription, token, editor account or hosted Studio has been created. Until public project/dataset configuration exists, the website uses the approved local copy and event annotations without contacting Sanity.
+The project and production dataset are configured, the seven starting documents are imported, and Studio is hosted at https://pivotech.sanity.studio. Local editing/preview works. An isolated hidden-record check verified that drafts remain private and published content is publicly readable; the test records were removed. Production website activation is pending the owner's Vercel environment settings and deployment verification. Until public project/dataset configuration exists, the website uses the approved local copy and event annotations without contacting Sanity.
+
+`npm run studio:deploy` targets the registered Studio application and sets its preview URL to https://pivotech.io. Local Studio still uses `SANITY_STUDIO_PREVIEW_URL` from `.env` or `.env.local`, normally http://localhost:3000. Keep private tokens out of all `SANITY_STUDIO_*` variables.
 
 ## Sources of truth
 
