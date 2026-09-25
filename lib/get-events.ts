@@ -1,7 +1,7 @@
 import "server-only";
 import { unstable_cache } from "next/cache";
 import { LUMA_FEED } from "@/app/config";
-import { fallbackEvents, parseEvents, upcomingEvents } from "./events";
+import { fallbackEvents, parseEvents, upcomingEvents, type EventLocation } from "./events";
 
 // This app uses Next's caching model without Cache Components. Cache only
 // validated data; a failed background refresh retains the last successful feed.
@@ -11,12 +11,12 @@ const readEvents = unstable_cache(async () => {
   return parseEvents(await response.text());
 }, ["luma-events-v1"], { revalidate: 43200, tags: ["events"] });
 
-export async function getUpcomingEvents() {
+export async function getUpcomingEvents(locations: Record<string, EventLocation> = {}) {
   try {
-    return upcomingEvents(await readEvents());
+    return upcomingEvents((await readEvents()).map(event => ({...event, ...locations[event.id]})));
   } catch {
     console.error("Luma feed unavailable; using the dated event fallback.");
     // These launch records expire normally. A valid empty feed never falls back.
-    return upcomingEvents(fallbackEvents);
+    return upcomingEvents(fallbackEvents.map(event => ({...event, ...locations[event.id]})));
   }
 }

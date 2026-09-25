@@ -2,8 +2,9 @@ import { SUBSTACK, CONVERSATIONS_LINK } from "@/app/config";
 import { type CommunityEvent, eventDate, eventTime } from "@/lib/events";
 import type { Post } from "@/lib/posts";
 import Link from "next/link";
+import { defaultHomepage, type HomepageCopy } from "@/content/homepage";
 
-export default function EventAndWriting({ events, posts }: { events: CommunityEvent[]; posts: Post[] }) {
+export default function EventAndWriting({ events, posts, content = defaultHomepage }: { events: CommunityEvent[]; posts: Post[]; content?: HomepageCopy }) {
   return (
     <section
       id="event"
@@ -14,12 +15,9 @@ export default function EventAndWriting({ events, posts }: { events: CommunityEv
         <span className="font-sans text-[15px] font-semibold tracking-[0.14em] uppercase text-blue">
           Upcoming conversations
         </span>
-        {/* <h2 className="font-serif font-normal text-navy text-[32px] mt-3.5 mb-3">
-          Conversations with Technologists
-        </h2> */}
+
         <p className="font-sans text-[15px] text-navy/65 mb-[18px]">
-          Our cozy, semi-formal salon where curious technologists share what
-          they&apos;re learning and building. Come join us.
+          {content.eventIntro}
         </p>
         <div className="mt-6 grid gap-4">
           {events.map((event) => (
