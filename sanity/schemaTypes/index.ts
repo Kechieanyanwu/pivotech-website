@@ -23,7 +23,6 @@ export const schemaTypes = [
       copyField("heroAccent", "Headline (italic)", 100),
       copyField("heroIntro", "Introduction", 600),
       copyField("heroAudience", "Who we bring together", 600),
-      copyField("eventHeading", "Conversations heading", 120),
       copyField("eventIntro", "Conversations introduction", 600),
       copyField("projectHeading", "Community projects heading", 150),
       defineField({

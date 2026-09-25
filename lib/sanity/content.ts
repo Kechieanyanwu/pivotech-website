@@ -8,7 +8,7 @@ import { defaultHomepage } from "@/content/homepage";
 import { defaultSettings, defaultProjects } from "@/content/community";
 
 const query = `{
-  "homepage": *[_type == "homepage" && _id == "homepage"][0]{heroTitle,heroAccent,heroIntro,heroAudience,eventHeading,eventIntro,pillars[]{verb,body},projectHeading},
+  "homepage": *[_type == "homepage" && _id == "homepage"][0]{heroTitle,heroAccent,heroIntro,heroAudience,eventIntro,pillars[]{verb,body},projectHeading},
   "annotations": *[_type == "eventAnnotation"]{eventUid,city,timeZone},
   "settings": *[_type == "siteSettings" && _id == "siteSettings"][0]{linkedin,substack,calendar,stats[]{number,label}},
   "projects": *[_type == "communityProject" && visible != false] | order(displayOrder asc, _id asc){

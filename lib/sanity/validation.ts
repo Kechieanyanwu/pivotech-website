@@ -8,7 +8,6 @@ export const homepageSchema = z.object({
   heroAccent: text(100),
   heroIntro: text(600),
   heroAudience: text(600),
-  eventHeading: text(120),
   eventIntro: text(600),
   pillars: z
     .array(z.object({ verb: text(80), body: text(600) }))
