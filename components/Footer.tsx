@@ -1,12 +1,13 @@
 import Image from "next/image";
+import Link from "next/link";
 import { LINKEDIN, SUBSTACK } from "@/app/config";
 
 export default function Footer() {
   return (
     <footer className="bg-beige border-t border-navy/12 px-6 md:px-12 py-10">
-      <div className="max-w-6xl mx-auto flex items-center justify-between gap-2">
+      <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-6">
         {/* Logo */}
-        <a href="#top" aria-label="Back to top">
+        <Link href="/#top" aria-label="Pivotech home">
           <Image
             src="/blue-logo.png"
             alt="Pivotech"
@@ -14,10 +15,11 @@ export default function Footer() {
             height={444}
             className="h-auto w-[100px]"
           />
-        </a>
+        </Link>
 
         {/* Social links */}
-        <div className="flex items-center gap-6 font-sans text-[15px] text-navy/70">
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-sans text-[15px] text-navy/70">
+          <Link href="/submit?type=talk" className="inline-flex min-h-11 items-center hover:text-navy transition-colors">Submit a talk</Link>
           {/* <a
             href="https://youtube.com/@pivotech"
             target="_blank"

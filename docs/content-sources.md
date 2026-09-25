@@ -21,3 +21,9 @@ Run `npm test`, `npm run lint`, `npx tsc --noEmit`, and `npm run build`. Verify 
 Substack remains the publisher. The site reads `https://pivotech.substack.com/feed` on the server, normalizes titles/HTTPS article URLs/publication dates, deduplicates canonical URLs and shows the latest three non-future entries. This includes article/podcast posts exposed by the publication's RSS, not Substack Notes, private feeds or scraped paywalled bodies.
 
 Validated entries use Next's persistent cache with hourly request-driven refresh. A failed refresh retains the last good result. With no successful cache, the page shows a publication link rather than the old hardcoded essays. A valid empty feed shows the same neutral fallback. The five-minute page cache can add another refresh interval before updated feed data is visible; this is not an exact hourly background schedule.
+
+## Talk submissions
+
+`/submit` and `/submit?type=talk` embed the existing Google Forms speaker form. The fixed provider URL and direct fallback are in `app/config.ts`. The site does not store answers or infer submission success from iframe loading. Google handles validation and confirmation, and responses/notifications remain with the form owner.
+
+Desktop/mobile loading, keyboard access to the submit button and return navigation were checked without sending a response. Before launch, the form owner should coordinate a clearly marked test submission and verify receipt/notifications. Google Forms controls its own appearance and internal scrolling; changes to questions may require adjusting the iframe height. The form selector is deferred until a second approved form exists.
