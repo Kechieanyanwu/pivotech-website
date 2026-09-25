@@ -1,8 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { LINKEDIN, SUBSTACK } from "@/app/config";
+import { getSiteContent } from "@/lib/sanity/content";
 
-export default function Footer() {
+export default async function Footer() {
+  const { settings } = await getSiteContent();
   return (
     <footer className="bg-beige border-t border-navy/12 px-6 md:px-12 py-10">
       <div className="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-6">
@@ -19,7 +20,12 @@ export default function Footer() {
 
         {/* Social links */}
         <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-sans text-[15px] text-navy/70">
-          <Link href="/submit?type=talk" className="inline-flex min-h-11 items-center hover:text-navy transition-colors">Submit a talk</Link>
+          <Link
+            href="/submit?type=talk"
+            className="inline-flex min-h-11 items-center hover:text-navy transition-colors"
+          >
+            Submit a talk
+          </Link>
           {/* <a
             href="https://youtube.com/@pivotech"
             target="_blank"
@@ -29,7 +35,7 @@ export default function Footer() {
             YouTube
           </a> */}
           <a
-            href={LINKEDIN}
+            href={settings.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-navy transition-colors"
@@ -37,7 +43,7 @@ export default function Footer() {
             LinkedIn
           </a>
           <a
-            href={SUBSTACK}
+            href={settings.substack}
             target="_blank"
             rel="noopener noreferrer"
             className="hover:text-navy transition-colors"

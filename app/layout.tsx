@@ -1,6 +1,13 @@
 import { Newsreader, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import type { Metadata } from "next";
+import { draftMode } from "next/headers";
+import { VisualEditing } from "next-sanity/visual-editing";
+
+async function SanityPreviewConnection() {
+  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || !process.env.NEXT_PUBLIC_SANITY_DATASET) return null;
+  return (await draftMode()).isEnabled ? <VisualEditing /> : null;
+}
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -51,6 +58,7 @@ export default function RootLayout({
     >
       <body className="font-sans bg-beige text-navy antialiased">
         {children}
+        <SanityPreviewConnection />
       </body>
     </html>
   );

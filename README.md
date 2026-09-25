@@ -1,46 +1,32 @@
-# Pivotech Website
+# Pivotech website
 
-Built with Next.js 16 App Router, TypeScript, Tailwind CSS 4, and Framer Motion.
+Next.js App Router, TypeScript, Tailwind CSS and Framer Motion, with optional Sanity editing.
 
-## Local Development
+## Development
 
-```bash
+```sh
 npm install
 npm run dev
 ```
 
-Visit http://localhost:3000
+Open http://localhost:3000. Use Node.js 22.12 or later for the Sanity tooling.
 
-## Before First Build
+## Checks
 
-1. Place final logo assets in `public/`:
-   - `pivotech-icon.png` (square icon mark — nav and footer)
-   - `pivotech-banner.png` (horizontal wordmark — optional, OG image is auto-generated)
-
-2. Verify all links are live:
-   - lu.ma event URL in `Hero.tsx`
-   - Notion/lu.ma URLs in `WhatWeDo.tsx` and `Engage.tsx`
-   - Substack and LinkedIn URLs in `Footer.tsx`
-
-## Deploy to Vercel
-
-```bash
-# Option A: Vercel CLI
-npx vercel --prod
-
-# Option B: GitHub import
-# Push to GitHub → import at vercel.com → no env vars needed
+```sh
+npm test
+npm run lint
+npx tsc --noEmit
+npm run build
 ```
 
-**DNS (Porkbun → Vercel):**
-- CNAME: `www` → `cname.vercel-dns.com`
-- A record: `@` → `76.76.21.21`
-- Vercel Dashboard → Project → Settings → Domains → Add `pivotech.io` and `www.pivotech.io`
+## Content
 
-## Launch Checklist
+- Upcoming conversations use the public Luma iCalendar feed with local/CMS city annotations.
+- Latest writing comes from the Pivotech Substack RSS feed.
+- `/submit` embeds the existing Google Forms speaker-submission form.
+- Without Sanity configuration, the website uses the approved local content in `content/`.
 
-- [ ] Replace placeholder icon with final P. icon
-- [ ] Verify all lu.ma and Notion links work
-- [ ] Test OG image at opengraph.xyz
-- [ ] Test on iOS Safari and Chrome Android
-- [ ] Run Lighthouse (target: Performance > 90, Accessibility > 95)
+See [content sources and caching](docs/content-sources.md) and [Sanity setup, activation and rollback](docs/sanity-setup.md). No CMS account or dataset is provisioned by installing this repository. The photo gallery and multi-form selector remain backlog work.
+
+Read the bundled Next.js documentation specified in AGENTS.md before changing framework code. Next.js and React were updated with the Sanity foundation; see the setup guide for remaining upstream CLI dependency advisories and activation checks.

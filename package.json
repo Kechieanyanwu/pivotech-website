@@ -10,7 +10,7 @@
     "test": "node --import tsx --test tests/*.test.ts",
     "studio:dev": "sanity dev",
     "studio:build": "sanity build",
-    "studio:deploy": "sanity deploy"
+    "studio:deploy": "SANITY_STUDIO_PREVIEW_URL=https://pivotech.io sanity deploy"
   },
   "dependencies": {
     "framer-motion": "^12.38.0",
