@@ -6,10 +6,10 @@ Next.js App Router, TypeScript, Tailwind CSS and Framer Motion, with optional Sa
 
 ```sh
 npm install
-npm run dev -- --port 3001
+npm run dev
 ```
 
-Open http://localhost:3001. Use Node.js 22.12 or later for the Sanity tooling.
+Open http://localhost:3000. Use Node.js 22.12 or later for the Sanity tooling.
 
 ## Checks
 
