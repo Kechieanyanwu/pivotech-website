@@ -1,6 +1,7 @@
 import { SUBSTACK, CONVERSATIONS_LINK } from "@/app/config";
 import { type CommunityEvent, eventDate, eventTime } from "@/lib/events";
 import type { Post } from "@/lib/posts";
+import Link from "next/link";
 
 export default function EventAndWriting({ events, posts }: { events: CommunityEvent[]; posts: Post[] }) {
   return (
@@ -41,6 +42,9 @@ export default function EventAndWriting({ events, posts }: { events: CommunityEv
           className="mt-5 inline-flex min-h-11 items-center gap-2 font-sans text-sm font-semibold text-blue hover:underline">
           View event calendar <span aria-hidden="true">→</span>
         </a>
+        <p className="mt-4 font-sans text-[15px] text-navy/70">Something to share with the room?{" "}
+          <Link href="/submit?type=talk" className="inline-flex min-h-11 items-center font-semibold text-blue hover:underline">Submit a talk →</Link>
+        </p>
       </div>
 
       {/* Latest Writing */}
