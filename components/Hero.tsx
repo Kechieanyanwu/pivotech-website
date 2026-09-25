@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { defaultHomepage, type HomepageCopy } from "@/content/homepage";
 
 const container = {
   hidden: {},
@@ -43,7 +44,7 @@ const item = {
 //   );
 // }
 
-export default function Hero() {
+export default function Hero({ content = defaultHomepage }: { content?: HomepageCopy }) {
   return (
     <section
       id="top"
@@ -63,25 +64,21 @@ export default function Hero() {
             className="font-serif font-normal text-navy leading-[1.02] tracking-[-0.02em] mb-6"
             style={{ fontSize: "clamp(42px, 6vw, 66px)" }}
           >
-            Ambitious technologists.{" "}
-            <span className="italic">Impactful products.</span>
+            {content.heroTitle}{" "}
+            <span className="italic">{content.heroAccent}</span>
           </motion.h1>
 
           <motion.p
             variants={item}
             className="font-sans text-navy/70 text-[19px] leading-[1.55] max-w-[560px] mb-9"
           >
-            Pivotech is the ecosystem where ambitious technologists turn ideas
-            into impact through conversations, build sessions, and a community
-            that raises your ambition.
+            {content.heroIntro}
           </motion.p>
           <motion.p
             variants={item}
             className="font-sans text-navy/70 text-[19px] leading-[1.55] max-w-[560px] mb-9"
           >
-            We bring together technologists, founders, designers, and operators
-            to learn, connect, and build impactful and commercially viable
-            products.
+            {content.heroAudience}
           </motion.p>
 
           <motion.div
