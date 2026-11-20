@@ -1,4 +1,4 @@
-import { Newsreader, Hanken_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import type { Metadata } from "next";
 import { draftMode } from "next/headers";
@@ -9,19 +9,20 @@ async function SanityPreviewConnection() {
   return (await draftMode()).isEnabled ? <VisualEditing /> : null;
 }
 
-const newsreader = Newsreader({
-  subsets: ["latin"],
+const newsreader = localFont({
+  src: [
+    { path: "./fonts/Newsreader[opsz,wght].ttf", weight: "300 600", style: "normal" },
+    { path: "./fonts/Newsreader-Italic[opsz,wght].ttf", weight: "300 600", style: "italic" },
+  ],
   variable: "--font-newsreader",
   display: "swap",
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
 });
 
-const hankenGrotesk = Hanken_Grotesk({
-  subsets: ["latin"],
+const hankenGrotesk = localFont({
+  src: "./fonts/HankenGrotesk[wght].ttf",
+  weight: "400 700",
   variable: "--font-hanken-grotesk",
   display: "swap",
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
